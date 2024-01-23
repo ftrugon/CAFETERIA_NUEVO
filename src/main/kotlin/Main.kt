@@ -82,11 +82,11 @@ class Cafetera(private var ubicacion:String){
         println("Se ha llenado la cafetera")
     }
 
-    fun servirtaza(taza:Int){
-        if (taza > cantidad){
+    fun servirtaza(taza:Taza){
+        if (taza.capacidad > cantidad){
             println("La cafetera se ha quedado sin cafe como para rellenar esta taza")
         }else {
-            this.cantidad -= taza
+            this.cantidad -= taza.capacidad
         }
     }
 
@@ -272,13 +272,13 @@ fun main() {
 
     for (taza in lista){
         if (cafetera1.cantidad > 25){
-            cafetera1.servirtaza(taza.capacidad)
+            cafetera1.servirtaza(taza)
             taza.llenar()
         }else if (cafetera2.cantidad > 25){
-            cafetera2.servirtaza(taza.capacidad)
+            cafetera2.servirtaza(taza)
             taza.llenar()
         }else if (cafetera3.cantidad > 25){
-            cafetera2.servirtaza(taza.capacidad)
+            cafetera2.servirtaza(taza)
             taza.llenar()
         }
     }
